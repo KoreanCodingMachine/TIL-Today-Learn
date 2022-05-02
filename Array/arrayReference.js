@@ -32,3 +32,6 @@ console.log(arr2); // [ 1, <1 empty item>, 3 ] , 즉 length 프로퍼티에 영�
 delete 는 희소배열을 만들고 length 프로퍼티값이 그대로 있다.
 splice는 희소배열을 만들지 않고 특정요소를 완전히 삭제한다.
 */
+
+const arr3 = [1, 2, 3];
+arr3.splice(1, 1); // [1,3]
