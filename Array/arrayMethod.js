@@ -28,3 +28,19 @@ arr.indexOf(4); // -1
 console.log(arr.indexOf(2, 3)); // 2번쨰 인수는 검색을 시작할 인덱스이다. -1
 console.log(arr.indexOf(2, 2)); // 2
 console.log(arr.indexOf(1)); // 0
+
+// 배열에 특정 요소가 존재하는지 확인할 때 유용하다.
+
+const foods = ['apple', 'banana', 'orange'];
+if (foods.indexOf('orange') === -1) {
+  foods.push('orange');
+}
+console.log(foods); // [ 'apple', 'banana', 'orange' ]
+
+//includes 메서드 -> 가독성이 더 좋음
+
+const foods2 = ['apple', 'banana', 'orange'];
+if (foods2.includes('orange') === -1) {
+  foods2.push('orange');
+}
+console.log(foods2); // [ 'apple', 'banana', 'orange' ]
