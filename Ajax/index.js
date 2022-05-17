@@ -51,3 +51,49 @@ function filter(key, val) {
 
 const strFilter = JSON.stringify(obj, filter);
 console.log(typeof strFilter, strFilter); // string {"name":"lee","alive":true,"hobby":["traveling","tennis"]}
+
+// 배열도 JSON 포맷의 문자열로 변환한다.
+
+const todos = [
+  { id: 1, content: 'HTML', completed: false },
+  { id: 2, content: 'HTML', completed: false },
+  { id: 3, content: 'HTML', completed: false },
+];
+
+const todosJson = JSON.stringify(todos);
+console.log(typeof todosJson, todosJson);
+// string [{"id":1,"content":"HTML","completed":false},{"id":2,"content":"HTML","completed":false},{"id":3,"content":"HTML","completed":false}]
+
+//JSON.parse 메서드는 JSON 포맷의 문자열을 객체로 변환한다.
+//서버로부터 클라이언트에게 전송된 JSON데이터는 문자열이다. 이 문자열을 객체로서 사용하려면 JSON포맷의 문자열을 객체화 해야한다.(역직렬화)
+
+const obj2 = {
+  name: 'lee',
+  age: 20,
+  alive: true,
+  hobby: ['traveling', 'tennis'],
+};
+
+const json2 = JSON.stringify(obj); // 객체를 JSON포맷의 문자열로 변환
+const parsed = JSON.parse(json2); // json포맷의 문자열을 객체로 변환
+console.log(typeof parsed, parsed); // object { name: 'lee', age: 20, alive: true, hobby: [ 'traveling', 'tennis' ] }
+
+//배열이 JSON 포맷의 문자열로 변환되어 있는 경우 JSON.parse는 문자열을 배열 객체로 변환한다.
+//배열의 요소가 객체인 경우 배열의 요소까지 객체로 변환한다.
+
+const todos2 = [
+  { id: 1, content: 'HTML', completed: false },
+  { id: 2, content: 'HTML', completed: false },
+  { id: 3, content: 'HTML', completed: false },
+];
+
+const json3 = JSON.stringify(todos2); // 배열을 JSON으로
+const parsed2 = JSON.parse(json3); // JSON을 객체로 , 이때 배열이 JSON포맷의 문자열로 변경되어 있음으로 배열의 요소까지 객체로 변환시킨다.
+console.log(typeof parsed2, parsed2);
+/*
+object [
+  { id: 1, content: 'HTML', completed: false },
+  { id: 2, content: 'HTML', completed: false },
+  { id: 3, content: 'HTML', completed: false }
+]
+*/
